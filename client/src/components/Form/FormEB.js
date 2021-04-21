@@ -78,10 +78,7 @@ const useStyles = makeStyles((theme) => ({
         clear();
       }
     };
-  
-    const token = user?.token;
-  
-  
+
     return (
         //at the outermost part of the form, must make only visible to users of type isAdmin === true
       <Paper className={classes.paper} elevation={0}>

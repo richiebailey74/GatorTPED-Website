@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //makes all requests go to API instead of axios
-const API = axios.create({ baseURL: 'http://localhost:5001' }); //use database port from index.js under server's index.js file
+const API = axios.create({ baseURL: 'http://localhost:5000' }); //use database port from index.js under server's index.js file
 //axios instance allows for additional functionality to be exploited later on
 
 API.interceptors.request.use((req) => {

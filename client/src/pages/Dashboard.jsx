@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Button, Paper, Grid, Typography, Container, TextField } from '@material-ui/core';
+import { Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
 import { updateProfile } from '../actions/auth';
@@ -68,7 +68,7 @@ const initialState = { firstName: '', lastName: '', email: '', password: '', maj
 const Dashboard = () => {
 
   const [form, setForm] = useState(initialState);
-  var [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  var [user] = useState(JSON.parse(localStorage.getItem('profile')));
   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles();
@@ -91,7 +91,7 @@ const Dashboard = () => {
           <Typography component="h1" variant="h5"> Dashboard </Typography>
           <form className={classes.form} onSubmit={handleSubmit}>
             <Grid container spacing={2}>
-                <DashboardInfo name="firstName" label={user?.result.name} />
+                <DashboardInfo name="name" label={user?.result.name} />
                 <DashboardInfo name="email" label={user?.result.email} />
                 <DashboardInfo name="major" label={user?.result.major}  half />
                 <DashboardInfo name="gradYear" label={user?.result.gradYear}  half />

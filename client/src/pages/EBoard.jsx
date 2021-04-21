@@ -1,21 +1,7 @@
-// import React from 'react';
-
-// const EBoard = () => {
-
-//     return (
-//         <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)'}}>
-//             THIS IS THE EBOARD PAGE
-//         </div>
-//     )
-// };
-
-// export default EBoard;
-
-
 import React, { useState, useEffect } from 'react';
 import { Container, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
-import { makeStyles, useTheme} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { getPostsEB } from '../actions/postsEB';
 import PostsEB from '../components/PostsEB/PostsEB';
@@ -36,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const EBoard = () => {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const [user] = useState(JSON.parse(localStorage.getItem('profile')));
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
 

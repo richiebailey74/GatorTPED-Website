@@ -56,7 +56,7 @@ export const updateProfile = async(req,res) => {
 
   try {
 
-    const oldUser = await UserModel.findOne({ email });
+    var oldUser = await UserModel.findOne({ email });
     
     const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
 

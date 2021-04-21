@@ -9,8 +9,6 @@ import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 
-import HelpTwoToneIcon from '@material-ui/icons/HelpTwoTone';
-
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
@@ -66,7 +64,6 @@ export default function SimpleAccordion() {
                 <Grid item xs={4}>
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3a-content" id="panel3a-header" alignItems="center">
-                            <HelpTwoToneIcon/>
                             <Typography className={classes.heading} align="center">HOW DO I JOIN GATOR TPED?</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -80,7 +77,6 @@ export default function SimpleAccordion() {
                 <Grid item xs={4}>
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-                            <HelpTwoToneIcon/>
                             <Typography className={classes.heading} align="center">WHO CAN JOIN GATOR TPED?</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -94,7 +90,6 @@ export default function SimpleAccordion() {
                 <Grid item xs={4}>
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-                            <HelpTwoToneIcon/>
                             <Typography className={classes.heading} align="center">IS THIS CLUB JUST FOR ENGINEERS?</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -108,7 +103,6 @@ export default function SimpleAccordion() {
                 <Grid item xs={4}>
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-                            <HelpTwoToneIcon/>
                             <Typography className={classes.heading} align="center">WHAT IS THE DESIGN TEAM?</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -122,7 +116,6 @@ export default function SimpleAccordion() {
                 <Grid item xs={4}>
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-                            <HelpTwoToneIcon/>
                             <Typography className={classes.heading} align="center">HOW DO I JOIN THE DESIGN TEAM?</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -136,7 +129,6 @@ export default function SimpleAccordion() {
                 <Grid item xs={4}>
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-                            <HelpTwoToneIcon/>
                             <Typography className={classes.heading} align="center">DO I NEED EXPERIENCE TO JOIN THE DESIGN TEAM?</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -150,7 +142,6 @@ export default function SimpleAccordion() {
                 <Grid item xs={4}>
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-                            <HelpTwoToneIcon/>
                             <Typography className={classes.heading} align="center">WHAT IS SWAMP THRILLS?</Typography>
                         </AccordionSummary>
                         <AccordionDetails>

@@ -77,9 +77,6 @@ const useStyles = makeStyles((theme) => ({
       }
     };
   
-    const token = user?.token;
-  
-  
     return (
       <Paper className={classes.paper} elevation={0}>
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>

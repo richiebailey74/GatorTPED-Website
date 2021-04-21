@@ -1,8 +1,8 @@
 //import React from 'react';
 
 import React, { useState, useEffect } from 'react';
-import { Container, Grow, Grid } from '@material-ui/core';
-import { makeStyles, useTheme} from '@material-ui/core/styles';
+import { Container, Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
 
 import { getPosts } from '../actions/posts';

@@ -1,5 +1,5 @@
 //react imports
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useHistory, withRouter, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
 
@@ -17,7 +17,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import List from '@material-ui/core/List';
-//import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ListItem from '@material-ui/core/ListItem';
@@ -192,16 +191,17 @@ const Appbar = (props) => {
     }, [open]);
 
     //logout
-    const logout = () => {
+    const logout = useCallback(() => {
       dispatch({ type: 'LOGOUT' });
 
       history.push('/');
 
       setUser(null);
-    };
+    }, [dispatch, history]);
+    
+    const token = user?.token;
 
     useEffect(() => {
-      const token = user?.token;
   
       if (token) {
         const decodedToken = decode(token);
@@ -210,19 +210,9 @@ const Appbar = (props) => {
       }
   
       setUser(JSON.parse(localStorage.getItem('profile')));
-    }, [location]);
-
-
-
-
+    }, [location, token, logout]);
 
     
-    const token = user?.token;
-
-
-
-
-
 
     //list of objects that will be displayed when sidebar swings out, will be dereferenced later
     const itemsList = [
@@ -271,20 +261,6 @@ const Appbar = (props) => {
         onClick: () => history.push('/submitpost')
       });
     }
-
-
-    // const logout = () => {
-
-    //   dispatch({ type: actionType.LOGOUT });
-  
-    //   history.push('/auth');
-  
-    //   setUser(null);
-    // };
-
-    
-
-
 
     //list of objects that will be displayed in the drop down menu
     const menuItems = [    
