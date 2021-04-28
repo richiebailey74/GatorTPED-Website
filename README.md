@@ -14,4 +14,4 @@ The configuration is as follows: -Package JSON for the client side: { "name": "c
 
 All relevant API keys, passwords, and emails have been sent to the client.
 
-If you have any issues with the webiste's functionality or have any ideas/suggestions, please contact any one of our programmers listed below: Annabella Vilomar: 305-606-2354 bella@vilomar@gmail.com Blake Gray: 719-243-1514 blake.gray@ufl.edu Matthew Lorelle: 321-394-5565 matthewlorelle@gmail.com Richard Bailey: 727-735-2881 richiebailey74@gmail.com
+If you have any issues with the webiste's functionality or have any ideas/suggestions, please contact any one of our programmers listed below: Annabella Vilomar: 305-606-2354 bella@vilomar.com Blake Gray: 719-243-1514 blake.gray@ufl.edu Matthew Lorelle: 321-394-5565 matthewlorelle@gmail.com Richard Bailey: 727-735-2881 richiebailey74@gmail.com
