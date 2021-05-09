@@ -1,0 +1,2 @@
+this specific directory ../images/.. contains images that are used throughout the webiste, more specifically on the homepage,-
+-navigation bar drawer, edit profile information, and as background on every page and subpage on the website

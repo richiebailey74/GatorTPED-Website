@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-
+import { Button, Paper, Grid, Typography, Container } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import { updateProfile } from '../actions/auth';
 import Input from './Input';
-
-import { makeStyles } from '@material-ui/core/styles';
-
 import DashboardInfo from './DashboardInfo';
-
 import dashboardImage from './dashboard.jpg';
 import editProfileImage from './editProfile.jpg';
 
-
+//this is the stlying that is used in the exportable using u-styles in CSS
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -29,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(3),
     '& .MuiInputBase-input': {
         color: 'black',
@@ -62,28 +58,34 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//this const initial state is defined to be the default values for the edit profile page (called dashboard) for the edit profile form
 const initialState = { firstName: '', lastName: '', email: '', password: '', major: '', gradYear: '', clubPosition: '' };
 
-
+//exportable containing styling and functionality to allow users to change information about their profile
+//also viewable subpage for users and admins
 const Dashboard = () => {
 
+  //defines consts used in the funcions and returned part of the exportable
   const [form, setForm] = useState(initialState);
   var [user] = useState(JSON.parse(localStorage.getItem('profile')));
   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles();
 
+  //takes the event e and prevents the default associated with the event and then dispatches the updateProfile function so information can be changed in the backend
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateProfile(form, history));
     e.target.reset();
   };
 
-
+  //defines the handleChange with the event e
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
+  //returned part of the exportable tht includes stlying and embedded functionality
   return (
     
+    //displays the logged-in users current information
     <div>
       <div style={{ position: 'absolute', left: '33%', top: '50%', transform: 'translate(-50%, -50%)'}}>
       <Container component="main" maxWidth="sm">
@@ -102,6 +104,8 @@ const Dashboard = () => {
       </Container>
     </div>
 
+    {/* displays a form that allows users to change the information associated with their account (not email or password
+      but they must log out and log back in to view the changed information to the information display) */}
     <div style={{ position: 'absolute', left: '67%', top: '50%', transform: 'translate(-50%, -50%)'}}>
         <Container component="main" maxWidth="sm">
           <Paper style={{ backgroundImage: `url(${editProfileImage})`, backgroundSize: 'cover', }} className={classes.paper} elevation={3}>
@@ -126,14 +130,8 @@ const Dashboard = () => {
           </Paper>
         </Container>
       </div>
-
     </div>
-    
-  
   );
-
-
-
 };
 
 

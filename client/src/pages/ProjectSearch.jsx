@@ -1,13 +1,11 @@
-//import React from 'react';
-
 import React, { useState, useEffect } from 'react';
 import { Container, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
-
 import { getPosts } from '../actions/posts';
 import Posts from '../components/Posts/Posts';
 
+//this is the stlying used for the project display subpage on the website
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'fixed',
@@ -22,19 +20,20 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
+//this is the exportable for the project display to be displayed on the projects subpage on the website
 const ProjectSearch = () => {
 
+    //defines all of the consts used in the exportable
     const [currentId, setCurrentId] = useState(0);
     const dispatch = useDispatch();
-
     const classes = useStyles();
 
+    //this function dispatches the getPosts() function to be used on the returned part of the exportable
     useEffect(() => {
       dispatch(getPosts());
     }, [currentId, dispatch]);
 
-    //find a new way to display all of the projects
+    //this is the returned part of the exportable which is what is actually displayed to the website with the embedded functionality of displaying posts to the page
       return (
         <Container>
           <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
@@ -44,8 +43,6 @@ const ProjectSearch = () => {
           </Grid>
         </Container>
       )
-
-
 };
 export default ProjectSearch;
 

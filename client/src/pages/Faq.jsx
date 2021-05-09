@@ -9,6 +9,7 @@ import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 
+//this is the styling used for the FAQS using u-styles in CSS
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
@@ -43,12 +44,17 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+//the exportable used that is actually displayed on the FAQ subpage on the website
 export default function SimpleAccordion() {
 
+  //this is the const defined for the exportable, it is the styling
   const classes = useStyles();
 
+  //the returned part of the exportable to actually be displayed
   return (
 
+    //aside from the title of the subpage, each FAQ uses a grid to be displayed and has nearly identical implementation (other than the display)
+    //each FAQ is expandable to show the answer and retractable to hide it and each holds a different question and answer
         <Container component="main">
 
             <CssBaseline />

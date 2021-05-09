@@ -1,6 +1,7 @@
-  
 import React from 'react';
 
+//this is the icon that is put next to the password text field that can be clicked to toggle the text to be masked or not
+//imported for use in Auth.js
 const icon = () => (
   <svg style={{ width: '20px', height: '20px' }} viewBox="0 0 24 24">
     <path

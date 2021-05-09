@@ -1,11 +1,5 @@
-//react imports
 import React from 'react';
 import {Route, Switch} from "react-router-dom"
-// import jwt_decode from "jwt-decode";
-// import setAuthToken from "../utils/setAuthToken";
-// import { setCurrentUser, logoutUser } from "../actions/authActions";
-
-// import store from "../store";
 
 //local imports (subpages)
 import Home from "../pages/Home";
@@ -16,10 +10,9 @@ import EBoard from "../pages/EBoard";
 import Faq from "../pages/Faq";
 import SubmitPost from "../pages/SubmitPost";
 import Dashboard from "../pages/Dashboard";
-//import Form from "../components/Form/Form";
-
 import Auth from '../components/Auth/Auth';
 
+//routes defined for use and export to be implemented to allow for redirects in the navigation bar and for user authentication for signup/login
 export default function Routes() {
 
     return (

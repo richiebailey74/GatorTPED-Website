@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
+//copyright function essentially displays the copyright logo with gatorTPED and current year to the page
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -24,6 +25,7 @@ function Copyright() {
   );
 }
 
+//styling used later on in the exportable by using u-styles in CSS
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(0),
@@ -36,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -44,14 +46,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//exportable for the signup subpage of the user authentication subpage
 export default function SignUp() {
 
+  //const defined contains the styling
   const classes = useStyles();
 
+  //returned part of the exportable that is actually displayed to the signup page for user authentication
   return (
 
+    //textfields and buttons are formatted straight forward and displayed on the signup form for intended interaction with viewer/user
     <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)'}}>
-
         <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>

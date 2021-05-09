@@ -3,13 +3,13 @@ import { Container, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-
 import { getFeaturedPosts } from '../actions/posts';
 import Posts from '../components/Posts/Posts';
 import logo from '../images/TPED.png';
 import team from '../images/team.webp';
 
-const useStyles = makeStyles((theme) => ({
+//this is the styling used for the homepage using u-styles in CSS
+const useStyles = makeStyles(() => ({
   root: {
     position: 'fixed',
     width: '100%',
@@ -23,17 +23,25 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+//this is the exportable used for display on the actual subpage
 const Home = () => {
+
+  //defines the consts used in the exportable
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
+  const classes = useStyles();
 
+  //this useEffect dispatches the function that gets all of the featured posts (projects that have the boolean marked as true in the database)-
+  //-for display on the homepage
   useEffect(() => {
     dispatch(getFeaturedPosts());
   }, [currentId, dispatch]);
 
-  const classes = useStyles();
-
+  //this is the returned part of the exportable that is actually dispalyed to the home page
   return (
+
+    //has grids that display all of the static information pertaining to the club's general information
+    //calls the useEffect that dispatches the function that gets all of the featured posts then displays them at bottom of the home page
     <Grow in>
       <Container>
         <Grid container justify="center" alignItems="center" direction="column" spacing={3} className={classes.gridContainer}>

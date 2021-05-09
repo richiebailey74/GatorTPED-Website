@@ -5,32 +5,23 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import StarIcon from '@material-ui/icons/Star';
-
 import { deletePost, switchFeatured } from '../../../actions/posts';
 import useStyles from './styles';
 
-
-
-const Post = ({ post, setCurrentId }) => {
+//exportable Post used for display on the project posts page
+const Post = ({ post }) => {
+  //defines constants used in the rest of the exportable
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
 
-  
-
+  //the actually returned post of type <Card> which is displayed to the project posts page
   return (
-    // <div>
-    //   <Card className={classes.card}>
-    //     <CardImg top width="100%" src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} alt="Card image cap" />
-    //     <CardBody>
-    //       <CardTitle tag="h3"> {post.title} </CardTitle>
-    //       <CardText tag="h4"> {post.major} </CardText>
-    //       <CardText tag="h5"> {post.message} </CardText>
-    //       <CardText tag="h5"> {moment(post.createdAt).fromNow()} </CardText>
-    //     </CardBody>
-    //   </Card>
-    // </div>
 
+  //utilizes the time at which the post was created
+  //users are able to delete their own posts (connected to the user ID) and admins can delete any post, through clicking the delete button
+  //displays all of the information on the post submitted through the form
+  //only admins can make posts featured or not featured by clicking on the labeled button either on the project post page or home page
     <Card className={classes.card}>
       <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
       <div className={classes.overlay}>

@@ -1,6 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { deepPurple } from '@material-ui/core/colors';
 
+//this is the styling used for the collective posts all put and displayed together on the executive board page, using u-styles in CSS
+//imported for use in the PostsEB.js file in the same directory
 export default makeStyles((theme) => ({
   mainContainer: {
     borderRadius: 15,

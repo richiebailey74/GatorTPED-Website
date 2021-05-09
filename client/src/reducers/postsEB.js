@@ -1,5 +1,6 @@
 import { FETCH_ALL, CREATE, UPDATE, DELETE } from '../constants/actionTypes';
 
+//using certain action types, this reducer handles all types of changes in state with regards to executive board members on the eboard page
 const eb = (postsEB = [], action) => {
   switch (action.type) {
     case FETCH_ALL:

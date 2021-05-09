@@ -2,6 +2,7 @@ import React from 'react';
 import pure from 'recompose/pure';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
+//this ActionHome exportable is what is dispalyed at the top of every page and subpage of the website that if clicked redirects to the homepage
 let ActionHome = (props) => (
   <SvgIcon style={{fontSize: '148px'}} viewBox="0 0 576.38 194.54" {...props}>
     <path className="cls-1" d="M537.58 426.75c-20.28 0-40.57 0-60.85.05-1.83 0-2.29-.42-2.27-2.26q.17-12.94 0-25.89c0-1.66.39-2 2-2 30.53.05 61.07 0 91.61.09 2 0 2.49-.49 2.48-2.49q-.12-30.64 0-61.29c0-1.84-.42-2.27-2.26-2.27-30.54.07-61.07 0-91.61.1-1.83 0-2.29-.41-2.27-2.26.11-8.7.09-17.41 0-26.11 0-1.45.37-1.81 1.81-1.8q61.29.06 122.58 0c1.45 0 1.81.36 1.81 1.8q-.06 61.29 0 122.58c0 1.74-.67 1.81-2 1.8q-30.5-.07-61.03-.05z" transform="translate(-24.31 -260.59)"/>

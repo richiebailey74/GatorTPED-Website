@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+//this is the mongoose database schema that connects to mongoDB for the information stored for users
 const userSchema = mongoose.Schema({
   name: { type: String, required:  true },
   email: { type: String, required: true },
@@ -11,4 +12,7 @@ const userSchema = mongoose.Schema({
   id: { type: String },
 });
 
-export default mongoose.model("User", userSchema);
+//exportable mongoDB model/schema
+var USER = mongoose.model("User", userSchema);
+
+export default USER;

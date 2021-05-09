@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+//this is the stlying immported in Auth.js in the same directory used for the login/signup page for user authentication
+//this uses u-styles in CSS
 export default makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -19,7 +21,7 @@ export default makeStyles((theme) => ({
     backgroundColor: 'orange',
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(3),
     '& label.Mui-focused': {
       color: 'orange',

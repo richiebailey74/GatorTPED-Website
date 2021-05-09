@@ -8,6 +8,7 @@ import Routes from "./routes/Routes";
 import Appbar from "./appbar/Appbar";
 import background from "./images/bg.jpg";
 
+//exportable that wraps up all frontend functionality to be displayed properly on the website
 export default function App() {
 
     document.body.style.backgroundImage = `url(${background})`;

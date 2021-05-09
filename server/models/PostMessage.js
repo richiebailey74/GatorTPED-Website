@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+//this is the mongoose database schema that connects to mongoDB for the information stored for project posts
 const postSchema = mongoose.Schema({
     title: String,
     message: String,
@@ -14,6 +15,7 @@ const postSchema = mongoose.Schema({
     },
 })
 
+//exportable mongoDB model/schema
 var PostMessage = mongoose.model('PostMessage', postSchema);
 
 export default PostMessage;

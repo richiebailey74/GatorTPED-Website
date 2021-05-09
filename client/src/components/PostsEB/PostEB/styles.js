@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+//styling for the particular posts for the E-BOARD page using u-styles in react
+//imported for use in ../PostsEB/PostEB/PostEB.js (same directory)
 export default makeStyles({
   media: {
     height: 0,

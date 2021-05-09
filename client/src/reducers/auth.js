@@ -1,5 +1,6 @@
 import * as actionType from '../constants/actionTypes';
 
+//using certain action types, this reducer handles all types of changes in state with regards to login and signup profile authentication
 const authReducer = (state = { authData: null }, action) => {
   switch (action.type) {
     case actionType.AUTH:

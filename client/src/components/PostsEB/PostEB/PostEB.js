@@ -2,20 +2,22 @@ import React from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
 import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-//import moment from 'moment';
 import { useDispatch } from 'react-redux';
-
 import { deletePostEB } from '../../../actions/postsEB';
 import useStyles from './styles';
 
+//exportable PostEB used for display on the executive board page
 const PostEB = ({ postEB, setCurrentId }) => {
+  //defines constants used in the rest of the exportable
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
 
-  
-
+  //the actually returned post of type <Card> which is displayed to the executive baord page
   return (
+
+  //these posts are viewable to everyone but only admins can delete posts (or make posts for that matter), through clicking the delete button
+  //displays all of the information on the post submitted through the formEB only viewable by the admin
     <Card className={classes.card}>
       <CardMedia className={classes.media} image={postEB.picture || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={postEB.name} />
       <div className={classes.overlay}>

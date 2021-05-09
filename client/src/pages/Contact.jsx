@@ -13,7 +13,7 @@ import ContactMailIcon from '@material-ui/icons/ContactMail';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 
-
+//copyright function essentially displays the copyright logo with gatorTPED and current year to the page
 function Copyright() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
@@ -27,6 +27,7 @@ function Copyright() {
     );
 }
 
+//styling used later on in the exportable by using u-styles in CSS
 const useStyles = makeStyles((theme) => ({
     paper: {
         marginTop: theme.spacing(0),
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'orange',
     },
     form: {
-        width: '90%', // Fix IE 11 issue.
+        width: '90%',
         marginTop: theme.spacing(0),
         color: 'white',
         '& .MuiInputBase-input': {
@@ -54,7 +55,6 @@ const useStyles = makeStyles((theme) => ({
           '& .MuiOutlinedInput-root': {
             '& fieldset': {
               borderColor: 'white',
-              // borderRadius: 50,
             },
             '&:hover fieldset': {
               borderColor: 'navy',
@@ -83,10 +83,14 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+//exportable for the contact us subpage
 const Contact = () => {
 
+    //defines consts used for functionality in the functions and the returned part of the exportable
     const classes = useStyles();
+    const [result, setResult] = useState(null);
 
+    //blank state for the values inserted into the email/message sent by the viewer/user filling out the form
     const [state, setState] = useState({
         name: '',
         email: '',
@@ -94,12 +98,12 @@ const Contact = () => {
         message: ''
     });
     
-    const [result, setResult] = useState(null);
-    
+    //function sends the email message to the attached admin email to backend
     const sendEmail = event => {
 
         event.preventDefault();
-
+        
+        //uses different axios function definitions for different situations with regards to sent message
         axios
             .post('/send', { ...state })
             .then(response => {
@@ -111,6 +115,7 @@ const Contact = () => {
             });
     };
     
+    //function changes the input on the form
     const onInputChange = event => {
 
         const { name, value } = event.target;
@@ -121,7 +126,11 @@ const Contact = () => {
         });
     };
 
+    //the actual returned styling with embedded functionality for the exportable
     return (
+        
+        //creates the contact us form with the corresponding and appropriate text fields with limits on size sent by viewer.user
+        //clears the form once the message is sent
         <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)'}}>
             <Container component="main" maxWidth="sm">
                 <div className={classes.bgpaper}>
@@ -201,7 +210,6 @@ const Contact = () => {
                             </form>
                         </div>
                     </Paper>
-                    
                 </div>
                 <Box mt={2}>
                     <Copyright />

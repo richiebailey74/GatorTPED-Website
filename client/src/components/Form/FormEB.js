@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
-
-//make a create eboard and update eboard
 import { createPostEB, updatePostEB } from '../../actions/postsEB';
-
 import { makeStyles } from '@material-ui/core/styles';
 
+//this the styling used for the form used for e-board posts using u-styles in CSS
+//used in the exportable to be displayable on other pages
+//will only be viewable to the admin
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
@@ -51,22 +51,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//the exportable form to other files to use and display on other pages
   const FormEB = ({ currentId, setCurrentId }) => {
+    //defines constants used in the exportable
     const [postDataEB, setPostDataEB] = useState({ name: '', position: '', aboutMe: '', classOf: '', major: '', creator: '', picture: '' });
     const postEB = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
     const dispatch = useDispatch();
     const classes = useStyles();
     const user = JSON.parse(localStorage.getItem('profile'));
   
+    //essentially puts the data from the text fields in the form into the exportable data to be used in e-board member posts to the e-board page
     useEffect(() => {
       if (postEB) setPostDataEB(postEB);
     }, [postEB]);
   
+    //used to clear and set to empty strings the text fields on the form
     const clear = () => {
       setCurrentId(0);
       setPostDataEB({ name: '', position: '', aboutMe: '', classOf: '', major: '', creator: '', picture: '' });
     };
   
+    //function for if an event e occurs on the form, utilizing built-in handleSubmit in react to create or edit e-board posts
     const handleSubmit = async (e) => {
       e.preventDefault();
   
@@ -79,6 +84,7 @@ const useStyles = makeStyles((theme) => ({
       }
     };
 
+    //the actual returned form with interactable buttons and text fields for data to be used in the form to be put into posts
     return (
         //at the outermost part of the form, must make only visible to users of type isAdmin === true
       <Paper className={classes.paper} elevation={0}>

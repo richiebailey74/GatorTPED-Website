@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+//styling for the particular posts for the PROJECT page using u-styles in react
+//imported for use in ../Posts/Post/Post.js (same directory)
 export default makeStyles({
   media: {
     height: 0,

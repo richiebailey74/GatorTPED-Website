@@ -1,6 +1,8 @@
 //react imports
 import React, { useState, useEffect, useCallback } from 'react';
 import { useHistory, withRouter, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import decode from 'jwt-decode';
 import clsx from 'clsx';
 
 //material ui core imports
@@ -39,19 +41,15 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-
+//image import
 import drawerImage from "./sideBar2.jpg";
 
-
-import { useDispatch } from 'react-redux';
-import decode from 'jwt-decode';
-
-
-const drawerWidth = '200px'; //const variable for sidebar width
+//const variable for sidebar width
+const drawerWidth = '200px';
 
 
 
-//handles all the styles for the components down below
+//handles all the styles for the components down below for the same file, using u-styles in CSS
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -94,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
+    //necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-start',
   },
@@ -150,18 +148,13 @@ const useStyles = makeStyles((theme) => ({
 //callback function that passes in props (history, used for routing)
 const Appbar = (props) => {
 
-    //useStyles functions
+    //consts defined to be used for functionality in the exportable
     const classes = useStyles();
     const theme = useTheme();
-    
-    //history used for subpage routing
-    
-
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const dispatch = useDispatch();
-    const history = useHistory();
+    const history = useHistory(); //history used for subpage routing
     const location = useLocation();
-    
     const [open, setOpen] = React.useState(false); //Drawer
     const [menuOpen, setMenuOpen] = React.useState(false);
     const anchorRef = React.useRef(null); //Menu
@@ -170,19 +163,23 @@ const Appbar = (props) => {
     const handleDrawerOpen = () => { setOpen(true); };
     const handleDrawerClose = () => { setOpen(false); };
 
-    //Menu open and close functions
+    //Menu open and close functions depending on if it is open or not and where the mouse click event e occurs on the page
     const handleToggle = () => { setMenuOpen((prevOpen) => !prevOpen)};
+    
     const handleClose = (event) => {
       if (anchorRef.current && anchorRef.current.contains(event.target)) { return; } 
       setMenuOpen(false)
     };
+
     function handleListKeyDown(event) {
       if (event.key === 'Tab') {
         event.preventDefault();
         setMenuOpen(false);
       }
     }
+
     const prevOpen = React.useRef(open);
+
     React.useEffect(() => {
       if (prevOpen.current === true && open === false) {
         anchorRef.current.focus();
@@ -190,7 +187,7 @@ const Appbar = (props) => {
       prevOpen.current = open;
     }, [open]);
 
-    //logout
+    //logout function allows users to logout of logged in account and redirects to the home page
     const logout = useCallback(() => {
       dispatch({ type: 'LOGOUT' });
 
@@ -199,8 +196,10 @@ const Appbar = (props) => {
       setUser(null);
     }, [dispatch, history]);
     
+    //this token is used to check if there exists a logged in user in by checking to see if there exists a token in the browser
     const token = user?.token;
 
+    //this function essentially logs the user out if they have been logged in for a certain period of time
     useEffect(() => {
   
       if (token) {
@@ -214,7 +213,7 @@ const Appbar = (props) => {
 
     
 
-    //list of objects that will be displayed when sidebar swings out, will be dereferenced later
+    //list of objects that will be displayed when sidebar swings out, will be dereferenced later in the returned part of the exportable
     const itemsList = [
       {
           text: 'Home', 
@@ -248,7 +247,7 @@ const Appbar = (props) => {
       },
     ]
 
-
+    //this adds edit profile and upload project to the navigation bar only if a user is logged in
     if(token) {
       itemsList.push({
         text: 'Edit Profile',
@@ -262,19 +261,22 @@ const Appbar = (props) => {
       });
     }
 
-    //list of objects that will be displayed in the drop down menu
+    //list of objects that will be displayed in the drop down menu (start empty)
+    //this will also be dereferenced later on in the returned part of the exportable
     const menuItems = [    
     ]
 
+    //if a user is logged in then push options to go to the edit profile page or to logout
     if(token) {
       menuItems.push({text: 'Profile', onClick: () => history.push('/dashboard')});
       menuItems.push({text: 'Logout', onClick: logout});
     }
+    //if a user is not login then the option to go to login page appears, and subsequently login or sign up to viewer is available
     else {
       menuItems.push({text: 'Login', onClick: () => history.push('/auth')});
     }
 
-    
+    //actual part of the exportable returned with the appropriate styling to be displayed
     return (
       <div className={classes.root}>
 
@@ -310,16 +312,13 @@ const Appbar = (props) => {
                 )}
               </Popper>
             </div>
-      
-            {/* This is the simple title on the Appbar, can be changed later*/}
 
+            {/* This is the home button that displays at the top of every page that if clicked redirects to the home page */}
             <div style={{ position: 'fixed', left: '50%', top: '45px', transform: 'translate(-50%, -50%)'}}>
               <Link href="/" variant="h6" color="inherit" underline="none">
                 <HomeButton />
               </Link>
             </div>
-            
-
 
             {/* This is the menu icon button on the right side that swings open the drawer sidebar*/}
             <ClickAwayListener onClickAway={handleDrawerClose}>
@@ -334,7 +333,6 @@ const Appbar = (props) => {
 
         {/* This is the sidebar with routing functionality to direct users to the appropriate subpages*/}
           <Drawer className={classes.drawer} anchor="right" open={open} classes={{paper: classes.drawerPaper, }}>
-          
             <div className={classes.drawerHeader}>
               <IconButton style={{color: 'white'}} onClick={handleDrawerClose}>
                   {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
@@ -354,9 +352,7 @@ const Appbar = (props) => {
                 })}
               </List>
             </ClickAwayListener>
-            
         </Drawer>
-        
       </div>
     );
 };

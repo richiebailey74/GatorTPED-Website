@@ -1,10 +1,16 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-
 import UserModel from "../models/User.js";
 
 const secret = 'test';
 
+//this file very important for express middleware for project posts, connecting the front and back ends of user input and data storage via the schema
+
+
+
+//this function awaits a request since it is async (why it uses await keyword)
+//signin essentially waits for a req from actions by the user/viewer to trasnfer data from the frontend to the backend via the schema to allow the user to signin
+//makes sure that the profile is correct using authentication (email and password match) as well as creates a token that expires after a certain amount of time
 export const signin = async (req, res) => {
   const { email, password } = req.body;
 
@@ -25,6 +31,9 @@ export const signin = async (req, res) => {
   }
 };
 
+//this function awaits a request since it is async (why it uses await keyword)
+//signup essentially waits for a req from actions by the user/viewer to trasnfer data from the frontend to the backend via the schema to allow the user to create a new account
+//makes sure that the profile can be created using authentication (email doesn't already exist) as well as creates a token that expires after a certain amount of time
 export const signup = async (req, res) => {
   const { email, password, firstName, lastName } = req.body;
 
@@ -49,7 +58,9 @@ export const signup = async (req, res) => {
   }
 };
 
-
+//this function awaits a request since it is async (why it uses await keyword)
+//updateProfile essentially waits for a req from actions by the user/viewer to trasnfer data from the frontend to the backend via the schema to allow the user to change the data associated with their profile
+//makes sure that the profile is correct using authentication (email and password match with token logged in) as well as creates a token that expires after a certain amount of time
 export const updateProfile = async(req,res) => {
 
   const { email, password, firstName, lastName, gradYear, major, clubPosition } = req.body;
