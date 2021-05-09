@@ -8,32 +8,36 @@ The link to the website is: https://www.gatortped.com/ No installation is needed
 The website was deployed using Heroku for the backend and Netlify for the frontend
 
 
-To run locally, the user must follow the following instructions. -Open the files in the GitHub repo in Visual Studio Code. -Open the terminal and split it. -Cd into server on one side and cd into client on the other. -Open the env file under server and replace the email address with the one you want connected to the website. -On both terminals run the following commands: npm install npm start -the website will then open up on a localhost
+To run locally, the user must follow the following instructions: 
+-Open the files in the GitHub repo in Visual Studio Code. 
+-Open the terminal and split it. -Cd into server on one side and cd into client on the other. 
+-Open the env file under server and replace the email address with the one you want connected to the website. 
+-On both terminals run the following commands: npm install npm start -the website will then open up on a localhost
 
-File Structure explanation:
+File Structure explanation: 
 -the overall file structure is split between front end (client) and back end (server)
 -both client and server contain files and functionality the connects the two sides (express middleware)
--the client side has:
-    actions to create data requests by the user
-    api axios that allows the front end requests to be connected to the database
-    appbar to hold functionality for the overall routing for the subpages and login/signup portal
-    components that contain:
-        user authentication functionality
-        form functinoality to fill out for posts and eboard members
-        posts and eboard member display functionality
-    constants that allow for errors to be thrown if mispelled actiontypes are used in any other files
-    images to be used and imported throughout the front end
-    pages that include all subpages to be routed to under the navbar or login/signup portal
-    reducers that signal state changes in the application
-    routes that allow for rerouting to different subpages
-    app that is the overall application structure (which subpages are wrapped in what ways)
-    index that renders how everything will be displayed
--the server side has:
-    keys and config that allows for the browser data to connect to the backend database
-    controllers that await the user requests for state changes and connect them to the database via express middleware
-    middleware that connects the frontend and the backend via express for user authentication
-    models that are the schemas for the database to give them informational structure
-    routes that are used in the backend to use how the data is transferred around the backend from the pages that require stawte changes
+-the client side has: 
+    actions to create data requests by the user, 
+    api axios that allows the front end requests to be connected to the database, 
+    appbar to hold functionality for the overall routing for the subpages and login/signup portal, 
+    components that contain: 
+        user authentication functionality, 
+        form functinoality to fill out for posts and eboard members, 
+        posts and eboard member display functionality, 
+    constants that allow for errors to be thrown if mispelled actiontypes are used in any other files, 
+    images to be used and imported throughout the front end, 
+    pages that include all subpages to be routed to under the navbar or login/signup portal, 
+    reducers that signal state changes in the application, 
+    routes that allow for rerouting to different subpages, 
+    app that is the overall application structure (which subpages are wrapped in what ways), 
+    index that renders how everything will be displayed, 
+-the server side has: 
+    keys and config that allows for the browser data to connect to the backend database, 
+    controllers that await the user requests for state changes and connect them to the database via express middleware, 
+    middleware that connects the frontend and the backend via express for user authentication, 
+    models that are the schemas for the database to give them informational structure, 
+    routes that are used in the backend to use how the data is transferred around the backend from the pages that require stawte changes.
 
 
 User functionality is pretty straight forward, but the admin account has a bit more functionality that is crucial to the website as a whole and keeping it up to date. The admin can add or remove executive board members. The admin can also delete any post.
