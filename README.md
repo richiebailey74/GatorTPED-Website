@@ -9,10 +9,10 @@ The website was deployed using Heroku for the backend and Netlify for the fronte
 
 
 To run locally, the user must follow the following instructions: 
--Open the files in the GitHub repo in Visual Studio Code. 
--Open the terminal and split it. -Cd into server on one side and cd into client on the other. 
--Open the env file under server and replace the email address with the one you want connected to the website. 
--On both terminals run the following commands: npm install npm start -the website will then open up on a localhost
+    -Open the files in the GitHub repo in Visual Studio Code. 
+    -Open the terminal and split it. -Cd into server on one side and cd into client on the other. 
+    -Open the env file under server and replace the email address with the one you want connected to the website. 
+    -On both terminals run the following commands: npm install npm start -the website will then open up on a localhost
 
 File Structure explanation: 
 -the overall file structure is split between front end (client) and back end (server)
